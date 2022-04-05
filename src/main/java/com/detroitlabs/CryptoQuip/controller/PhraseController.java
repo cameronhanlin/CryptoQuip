@@ -24,34 +24,39 @@ public class PhraseController {
 
     @RequestMapping("/")
     public String displayHome(ModelMap modelMap){
-        modelMap.put("thePhrase", phraseRepository.getThePhrase()); //string
+       /* modelMap.put("thePhrase", phraseRepository.getThePhrase()); //string
         modelMap.put("thePhraseScrambled", phraseRepository.getThePhraseScrambled()); //string
         modelMap.put("invalidDisplay", true);
-        modelMap.put("characterBank", phraseRepository.getCharacterBank());
+        modelMap.put("characterBank", phraseRepository.getCharacterBank());*/
+
+        modelMap = cycleModelMaps(modelMap);
 
         return "page2";
     }
 
     @RequestMapping("/page2")
     public String displayPage2(@RequestParam String keyChar, @RequestParam String newChar, ModelMap modelMap){
-        System.out.println(keyChar);
-        System.out.println(newChar);
+
         if(!keyChar.matches("[A-Z]") || !newChar.matches("[A-Z]")){
             validInput = false;
         } else {
-            System.out.println("calling userinput");
             phraseRepository.userInput(keyChar, newChar);
             validInput = true;
         }
-        System.out.println("Valid letters");
-        System.out.println(" ");
-        modelMap.put("thePhrase", phraseRepository.getThePhrase()); //string
-        modelMap.put("thePhraseScrambled", phraseRepository.getThePhraseScrambled()); //string
-        modelMap.put("invalidDisplay", validInput);
-        modelMap.put("characterBank", phraseRepository.getCharacterBank());
+
+        modelMap = cycleModelMaps(modelMap);
 
         return "page2";
     }
+
+    @RequestMapping("/NewGame")
+    public String startNewGame(ModelMap modelMap){
+
+        phraseRepository.newPhrase();
+        modelMap = cycleModelMaps(modelMap);
+        return "page2";
+    }
+
 
     @RequestMapping("/test")
     @ResponseBody
@@ -66,6 +71,15 @@ public class PhraseController {
         }
 
         return "test page";
+    }
+
+    public ModelMap cycleModelMaps(ModelMap modelMap){
+        modelMap.put("thePhrase", phraseRepository.getThePhrase()); //string
+        modelMap.put("thePhraseScrambled", phraseRepository.getThePhraseScrambled()); //string
+        modelMap.put("invalidDisplay", true);
+        modelMap.put("characterBank", phraseRepository.getCharacterBank());
+
+        return modelMap;
     }
 
 

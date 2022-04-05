@@ -65,16 +65,12 @@ public class PhraseRepository {
         for(CharacterBank letter: characterBank){
             if(letter.getCryptoCharacter().equals(keyChar)){
                 letter.setUserCharacter(newChar);
-                System.out.println("should have set the newChar");
-                System.out.println(letter.getCorrectCharacter()+"    "+newChar);
                 if(letter.getCorrectCharacter().equals(newChar)){
                     letter.setSolved(true);
                     letter.setCssClass("solvedBlock");
-                    System.out.println("Set to Solved");
                 } else {
                     letter.setSolved(false);
                     letter.setCssClass("incorrectBlock");
-                    System.out.println("Set to not Solved");
                 }
             }
         }
