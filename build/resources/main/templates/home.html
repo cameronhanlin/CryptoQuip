@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" th:href="@{/app.css}" />
+    <title>Title</title>
+</head>
+<body>
+    <p th:text="${thePhrase}"></p>
+    <p th:text="${thePhraseScrambled}"></p>
+
+<div class="phraseContainer">  <!--The phrase output-->
+    <div th:each="currentCharacter : ${characterBank}">
+        <div th:hidden="${currentCharacter.solved}" th:class="${currentCharacter.cssClass}"></div> <!--Not solved-->
+        <div th:hidden="${!currentCharacter.solved}" th:class="${currentCharacter.cssClass}" th:text="${currentCharacter.correctCharacter}"></div> <!--solved letters-->
+        <div class="unknownBlock" th:text="${currentCharacter.cryptoCharacter}"></div>
+
+    </div>
+</div>
+
+    <br><br><br><br>
+
+<div>
+    <form action="/page2" method="get">
+        <!--<label for="name">Replace all of the: </label>
+        <input type="keyChar" id="name" name="keyChar">
+        <label for="aname">with the letter:</label>
+        <input type="newChar" id="aname" name="newChar">
+        <input type="submit" value="Submit">-->
+        <label for="name">Replace all of the: </label>
+        <!--<input type="keyChar" id="name" name="keyChar">-->
+
+        <select id="name" name="keyChar" size="4">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+        </select>
+
+
+
+        <label for="aname">with the letter:</label>
+        <input type="newChar" id="aname" name="newChar">
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+WHY ARE YOU SEEING THIS?!
+</body>
+</html>
+
