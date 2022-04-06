@@ -26,6 +26,7 @@ public class PhraseRepository {
         characterBank.clear();
         characterBankLines.clear();
         thePhrase = phraseGeneratorService.getPhrase()[0];
+        //thePhrase = "This is just a short line";
         //thePhrase = "America: The only country that matters. If you want to experience other ‘cultures,’ use an atlas or a ham radio.";
 
 
@@ -65,7 +66,7 @@ public class PhraseRepository {
 
         }
 
-        //characterBankLines = makeMultiLines(characterBank);
+        characterBankLines = makeMultiLines(characterBank);
     }
 
     //multi lines
@@ -73,8 +74,7 @@ public class PhraseRepository {
 
     public ArrayList<ArrayList<CharacterBank>> makeMultiLines(ArrayList<CharacterBank> oneLine){
         ArrayList<ArrayList<CharacterBank>> multiLines = new ArrayList<>();
-        ArrayList<CharacterBank> first = new ArrayList<>();
-        ArrayList<CharacterBank> second = new ArrayList<>();
+
 
 
 
@@ -83,12 +83,17 @@ public class PhraseRepository {
         System.out.println("the initial size is: "+oneLine.size());
 
         int sizeOfLast = multiLines.get(multiLines.size()-1).size();
+        System.out.println("initial sizeOfLast: "+sizeOfLast);
 
         while(sizeOfLast > 45){
+            ArrayList<CharacterBank> first = new ArrayList<>();
+            ArrayList<CharacterBank> second = new ArrayList<>();
             System.out.println("Beginning of while loop, size of last multi line: "+multiLines.get(multiLines.size()-1).size());
+            System.out.println("Beginning of while loop, sizeOfLast "+sizeOfLast);
             for(int i=31; i<multiLines.get(multiLines.size()-1).size(); i++){
 
                 System.out.println("start of for loop "+i);
+                System.out.println("before if statement "+multiLines.get(multiLines.size()-1).get(i).getCorrectCharacter());
                 if (multiLines.get(multiLines.size()-1).get(i).getCorrectCharacter().equals(" ")){
                     for(int j=0; j<i; j++){
                         first.add(multiLines.get(multiLines.size()-1).get(j));
@@ -107,14 +112,23 @@ public class PhraseRepository {
             System.out.println("second is sized "+second.size());
             outputCharacterBank(second);
 
+            for(int i=0;i<multiLines.size();i++){
+                outputCharacterBank(multiLines.get(i));
+            }
+
             sizeOfLast = multiLines.get(multiLines.size()-1).size();
             System.out.println("The size of the last multiLine is "+sizeOfLast);
             System.out.println(multiLines.get(multiLines.size()-1).size());
             System.out.println("multi Line has lines : "+multiLines.size());
 
 
-            first.clear();
-            second.clear();
+
+
+
+
+
+
+
             System.out.println("END OF WHILE LOOP");
         }
 

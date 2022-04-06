@@ -84,8 +84,8 @@ public class PhraseController {
         modelMap.put("thePhrase", phraseRepository.getThePhrase()); //string
         modelMap.put("thePhraseScrambled", phraseRepository.getThePhraseScrambled()); //string
         modelMap.put("invalidDisplay", validInput);
-        modelMap.put("characterBank", phraseRepository.getCharacterBank());
-        //modelMap.put("characterBankLines", phraseRepository.getCharacterBankLines());
+        //modelMap.put("characterBank", phraseRepository.getCharacterBank());
+        modelMap.put("characterBankLines", phraseRepository.getCharacterBankLines());
 
         //characterBankLines and HTML
 

@@ -17,16 +17,16 @@
 <p th:text="${thePhrase}"></p>
 <p th:text="${thePhraseScrambled}"></p>
 
-<!--<div th:each="currentLine : ${characterBankLines}">-->
+<div th:each="currentLine : ${characterBankLines}">
     <div class="phraseContainer">  <!--The phrase output-->
-        <div th:each="currentCharacter : ${characterBank}">
+        <div th:each="currentCharacter : ${currentLine}">
             <div th:class="${currentCharacter.cssClass}" th:text="${currentCharacter.userCharacter}"></div> <!--Not solved-->
             <!--<div th:hidden="${!currentCharacter.solved}" th:class="${currentCharacter.cssClass}" th:text="${currentCharacter.userCharacter}"></div> solved letters-->
             <div th:class="${currentCharacter.cryptoCssClass}" th:text="${currentCharacter.cryptoCharacter}"></div>
 
         </div>
     </div>
-<!--</div>-->
+</div>
 
 <br><br><br><br>
 
