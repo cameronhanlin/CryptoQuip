@@ -41,3 +41,11 @@
 .right{
     float:right;
 }
+
+.left{
+    float:left;
+}
+
+.rules{
+    text-indent: 50px;
+}

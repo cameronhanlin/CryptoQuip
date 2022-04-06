@@ -98,7 +98,7 @@ public class PhraseRepository {
                     for(int j=0; j<i; j++){
                         first.add(multiLines.get(multiLines.size()-1).get(j));
                     }
-                    for(int k=i; k<multiLines.get(multiLines.size()-1).size(); k++){
+                    for(int k=i+1; k<multiLines.get(multiLines.size()-1).size(); k++){
                         second.add(multiLines.get(multiLines.size()-1).get(k));
                     }
                     i = multiLines.get(multiLines.size()-1).size();

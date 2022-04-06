@@ -81,8 +81,8 @@ public class PhraseController {
 
     public ModelMap cycleModelMaps(ModelMap modelMap){
         modelMap.put("puzzleSolved", phraseRepository.checkWinner());
-        modelMap.put("thePhrase", phraseRepository.getThePhrase()); //string
-        modelMap.put("thePhraseScrambled", phraseRepository.getThePhraseScrambled()); //string
+        //modelMap.put("thePhrase", phraseRepository.getThePhrase()); //string
+        //modelMap.put("thePhraseScrambled", phraseRepository.getThePhraseScrambled()); //string
         modelMap.put("invalidDisplay", validInput);
         //modelMap.put("characterBank", phraseRepository.getCharacterBank());
         modelMap.put("characterBankLines", phraseRepository.getCharacterBankLines());

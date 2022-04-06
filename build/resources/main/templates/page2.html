@@ -3,15 +3,37 @@
 <head>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" th:href="@{/app.css}" />
-    <title>Title</title>
+    <title>CryptoQuip - With Cameron and Ruqayyah</title>
 </head>
 <body>
 
+
+<div>
+    <div class="rules">
+
+        <h1>CryptoQuip</h1>
+        <h4 class="left">-Enter in the letter you want to replace below, solve the cypher.</h4>
+
+    </div>
+
+</div>
+
+
+
+
 <div>
     <a class="right" href="/NewGame">
-        <button class="right">Start new game</button><br><br>
+        <button class="right">Start new game</button>
     </a>
 </div>
+
+
+<br>
+<br>
+<br>
+<br>
+
+
 
 
 <p th:text="${thePhrase}"></p>
@@ -102,8 +124,6 @@
     <p>You solved the puzzle! Congrats!</p>
 </div>
 
-
-HAVE YOU THOUGHT ABOUT MAKING THE PHRASE OVER MULTIPLE LINES?!? YOUD HAVE TO MAKE AN ARRAY LIST OF ARRAY LISTS FOR THAT!!!
 
 </body>
 </html>
