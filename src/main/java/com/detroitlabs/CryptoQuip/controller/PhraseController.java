@@ -24,13 +24,7 @@ public class PhraseController {
 
     @RequestMapping("/")
     public String displayHome(ModelMap modelMap){
-       /* modelMap.put("thePhrase", phraseRepository.getThePhrase()); //string
-        modelMap.put("thePhraseScrambled", phraseRepository.getThePhraseScrambled()); //string
-        modelMap.put("invalidDisplay", true);
-        modelMap.put("characterBank", phraseRepository.getCharacterBank());*/
-
         modelMap = cycleModelMaps(modelMap);
-
         return "page2";
     }
 
@@ -62,7 +56,7 @@ public class PhraseController {
     @ResponseBody
     public String displayCharacterBank(ModelMap modelMap){
 
-        ArrayList<CharacterBank> theList = phraseRepository.getCharacterBank();
+        /*ArrayList<CharacterBank> theList = phraseRepository.getCharacterBank();
         System.out.println("TEST OUTPUT");
         for(CharacterBank characterBank : theList){
             System.out.println("Correct Letter: "+characterBank.getCorrectCharacter());
@@ -70,14 +64,30 @@ public class PhraseController {
             System.out.println(" ");
         }
 
+         */
+
+        ArrayList<ArrayList<CharacterBank>> multiLines = phraseRepository.getCharacterBankLines();
+        System.out.println(multiLines.size());
+        System.out.println(multiLines.get(0).size());
+
+        for(int i=0; i<multiLines.size();i++){
+            for(int j=0; j<multiLines.get(i).size();j++){
+                System.out.print(multiLines.get(i).get(j).getCorrectCharacter());
+            }
+            System.out.println("next line");
+        }
         return "test page";
     }
 
     public ModelMap cycleModelMaps(ModelMap modelMap){
+        modelMap.put("puzzleSolved", phraseRepository.checkWinner());
         modelMap.put("thePhrase", phraseRepository.getThePhrase()); //string
         modelMap.put("thePhraseScrambled", phraseRepository.getThePhraseScrambled()); //string
-        modelMap.put("invalidDisplay", true);
+        modelMap.put("invalidDisplay", validInput);
         modelMap.put("characterBank", phraseRepository.getCharacterBank());
+        //modelMap.put("characterBankLines", phraseRepository.getCharacterBankLines());
+
+        //characterBankLines and HTML
 
         return modelMap;
     }

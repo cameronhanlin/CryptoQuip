@@ -17,20 +17,22 @@
 <p th:text="${thePhrase}"></p>
 <p th:text="${thePhraseScrambled}"></p>
 
-<div class="phraseContainer">  <!--The phrase output-->
-    <div th:each="currentCharacter : ${characterBank}">
-        <div th:class="${currentCharacter.cssClass}" th:text="${currentCharacter.userCharacter}"></div> <!--Not solved-->
-        <!--<div th:hidden="${!currentCharacter.solved}" th:class="${currentCharacter.cssClass}" th:text="${currentCharacter.userCharacter}"></div> solved letters-->
-        <div th:class="${currentCharacter.cryptoCssClass}" th:text="${currentCharacter.cryptoCharacter}"></div>
+<!--<div th:each="currentLine : ${characterBankLines}">-->
+    <div class="phraseContainer">  <!--The phrase output-->
+        <div th:each="currentCharacter : ${characterBank}">
+            <div th:class="${currentCharacter.cssClass}" th:text="${currentCharacter.userCharacter}"></div> <!--Not solved-->
+            <!--<div th:hidden="${!currentCharacter.solved}" th:class="${currentCharacter.cssClass}" th:text="${currentCharacter.userCharacter}"></div> solved letters-->
+            <div th:class="${currentCharacter.cryptoCssClass}" th:text="${currentCharacter.cryptoCharacter}"></div>
 
+        </div>
     </div>
-</div>
+<!--</div>-->
 
 <br><br><br><br>
 
 <div>
     <h6 th:hidden="${invalidDisplay}">PLEASE CORRECTLY INPUT TWO NUMBERS BELOW</h6>
-    <form action="/page2" method="get">
+    <form action="/page2" method="get" th:hidden="${puzzleSolved}">
         <label for="key-selection">Replace all of the: </label>
             <select id="key-selection" name="keyChar" size="1" tabindex="0">
                 <option value="XX">Please choose a letter</option>   <!--DO YOU WANNA MAKE THIS AN ARRAY LIST AT SOME POINT TO REMOVE CORRECT RESPONSES?-->
@@ -95,6 +97,13 @@
         <input type="submit" value="Submit">
     </form>
 </div>
+<br><br><br><br>
+<div th:hidden="${!puzzleSolved}">
+    <p>You solved the puzzle! Congrats!</p>
+</div>
+
+
+HAVE YOU THOUGHT ABOUT MAKING THE PHRASE OVER MULTIPLE LINES?!? YOUD HAVE TO MAKE AN ARRAY LIST OF ARRAY LISTS FOR THAT!!!
 
 </body>
 </html>
