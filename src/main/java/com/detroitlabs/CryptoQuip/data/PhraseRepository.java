@@ -29,11 +29,8 @@ public class PhraseRepository {
         //thePhrase = "This is just a short line";
         //thePhrase = "America: The only country that matters. If you want to experience other ‘cultures,’ use an atlas or a ham radio.";
 
-
-        //System.out.println(thePhrase);  // the Phrase as it comes from the API
-
         thePhrase = thePhrase.toLowerCase();
-        scrambled = shuffleString(alphabet);  //TODO: MAKE A UNIT TEST
+        scrambled = shuffleString(alphabet);
         thePhraseScrambled = thePhrase;
 
         alphabet = alphabet.toLowerCase();
@@ -61,39 +58,23 @@ public class PhraseRepository {
                 } else {
                     characterBank.add(new CharacterBank(letter,thePhraseScrambled.substring(i,i+1), "solvedBlock", "unknownBlock", true, letter)); //green
                 }
-
             }
-
         }
 
         characterBankLines = makeMultiLines(characterBank);
     }
 
-    //multi lines
-    //if > 40, split at 33
-
     public ArrayList<ArrayList<CharacterBank>> makeMultiLines(ArrayList<CharacterBank> oneLine){
         ArrayList<ArrayList<CharacterBank>> multiLines = new ArrayList<>();
 
-
-
-
-
         multiLines.add(oneLine);
-        System.out.println("the initial size is: "+oneLine.size());
 
         int sizeOfLast = multiLines.get(multiLines.size()-1).size();
-        System.out.println("initial sizeOfLast: "+sizeOfLast);
 
         while(sizeOfLast > 45){
             ArrayList<CharacterBank> first = new ArrayList<>();
             ArrayList<CharacterBank> second = new ArrayList<>();
-            System.out.println("Beginning of while loop, size of last multi line: "+multiLines.get(multiLines.size()-1).size());
-            System.out.println("Beginning of while loop, sizeOfLast "+sizeOfLast);
             for(int i=31; i<multiLines.get(multiLines.size()-1).size(); i++){
-
-                System.out.println("start of for loop "+i);
-                System.out.println("before if statement "+multiLines.get(multiLines.size()-1).get(i).getCorrectCharacter());
                 if (multiLines.get(multiLines.size()-1).get(i).getCorrectCharacter().equals(" ")){
                     for(int j=0; j<i; j++){
                         first.add(multiLines.get(multiLines.size()-1).get(j));
@@ -107,29 +88,15 @@ public class PhraseRepository {
             multiLines.remove(multiLines.size()-1);
             multiLines.add(first);
             multiLines.add(second);
-            System.out.println("first is sized "+first.size());
-            outputCharacterBank(first);
-            System.out.println("second is sized "+second.size());
-            outputCharacterBank(second);
+
+            //outputCharacterBank(first);
+            //outputCharacterBank(second);
 
             for(int i=0;i<multiLines.size();i++){
                 outputCharacterBank(multiLines.get(i));
             }
 
             sizeOfLast = multiLines.get(multiLines.size()-1).size();
-            System.out.println("The size of the last multiLine is "+sizeOfLast);
-            System.out.println(multiLines.get(multiLines.size()-1).size());
-            System.out.println("multi Line has lines : "+multiLines.size());
-
-
-
-
-
-
-
-
-
-            System.out.println("END OF WHILE LOOP");
         }
 
         return multiLines;
@@ -144,7 +111,7 @@ public class PhraseRepository {
     }
 
 
-    //TODO: MAYBE TEST TO SEE IF ANSWER IS CORRECT
+
     public void userInput(String keyChar, String newChar){
 
         for(CharacterBank letter: characterBank){
@@ -161,7 +128,6 @@ public class PhraseRepository {
         }
     }
 
-    //TODO: UNIT TEST WINNER STATUS - CAMERON TO REVIEW
     public boolean checkWinner(){
         for(CharacterBank letter: characterBank){
             if(!letter.isSolved()){
@@ -171,17 +137,34 @@ public class PhraseRepository {
         return true;
     }
 
-    //TODO: UNIT TEST IF ALPHABETS ARE SHUFFLED
     public String shuffleString(String string){
+        String original = string;
+        String shuffled;
         List<String> letters = Arrays.asList(string.split(""));
-        Collections.shuffle(letters);
-        String shuffled = "";
-        for (String letter : letters) {
-            shuffled += letter;
-        }
+        do{
+            Collections.shuffle(letters);
+            shuffled = "";
+            for (String letter : letters) {
+                shuffled += letter;
+            }
+        } while (checkIfNotShuffled(original, shuffled));
+
         return shuffled;
     }
 
+    public boolean checkIfNotShuffled(String original, String shuffled){
+        if(original.length() != shuffled.length()){
+            return true;
+        } else {
+            for (int i=0; i<original.length(); i++){
+                if(original.substring(i,i+1).equals(shuffled.substring(i,i+1))){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 
     public String getThePhrase() {
         return thePhrase;
