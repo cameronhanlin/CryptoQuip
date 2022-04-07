@@ -33,7 +33,7 @@ public class PhraseRepository {
         //System.out.println(thePhrase);  // the Phrase as it comes from the API
 
         thePhrase = thePhrase.toLowerCase();
-        scrambled = shuffleString(alphabet);
+        scrambled = shuffleString(alphabet);  //TODO: MAKE A UNIT TEST
         thePhraseScrambled = thePhrase;
 
         alphabet = alphabet.toLowerCase();
@@ -144,7 +144,7 @@ public class PhraseRepository {
     }
 
 
-
+    //TODO: MAYBE TEST TO SEE IF ANSWER IS CORRECT
     public void userInput(String keyChar, String newChar){
 
         for(CharacterBank letter: characterBank){
@@ -161,6 +161,7 @@ public class PhraseRepository {
         }
     }
 
+    //TODO: UNIT TEST WINNER STATUS - CAMERON TO REVIEW
     public boolean checkWinner(){
         for(CharacterBank letter: characterBank){
             if(!letter.isSolved()){
@@ -170,6 +171,7 @@ public class PhraseRepository {
         return true;
     }
 
+    //TODO: UNIT TEST IF ALPHABETS ARE SHUFFLED
     public String shuffleString(String string){
         List<String> letters = Arrays.asList(string.split(""));
         Collections.shuffle(letters);
@@ -179,6 +181,7 @@ public class PhraseRepository {
         }
         return shuffled;
     }
+
 
     public String getThePhrase() {
         return thePhrase;

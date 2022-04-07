@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.detroitlabs.CryptoQuip.data.PhraseRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-04-07T18:16:13" hostname="RUQAYYAHs-MacBook-Pro.local" time="0.849">
+  <properties/>
+  <testcase name="shuffleString()" classname="com.detroitlabs.CryptoQuip.data.PhraseRepositoryTest" time="0.849"/>
+  <system-out><![CDATA[14:16:14.190 [Test worker] DEBUG org.springframework.web.client.RestTemplate - HTTP GET https://ron-swanson-quotes.herokuapp.com/v2/quotes
+14:16:14.200 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Accept=[application/json, application/*+json]
+14:16:14.575 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Response 200 OK
+14:16:14.578 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Reading to [java.lang.String[]]
+the initial size is: 159
+initial sizeOfLast: 159
+Beginning of while loop, size of last multi line: 159
+Beginning of while loop, sizeOfLast 159
+start of for loop 31
+before if statement T
+start of for loop 32
+before if statement E
+start of for loop 33
+before if statement P
+start of for loop 34
+before if statement P
+start of for loop 35
+before if statement I
+start of for loop 36
+before if statement N
+start of for loop 37
+before if statement G
+start of for loop 38
+before if statement  
+first is sized 38
+AN IDEAL NIGHT OUT, TO ME, IS STEPPING 
+second is sized 120
+ONTO MY PORCH AREA AND GRILLING UP A THICK SLAB OF SOMETHING’S FLESH AND THEN POPPING IN A HIGHLIGHT REAL FROM THE WNBA. 
+AN IDEAL NIGHT OUT, TO ME, IS STEPPING 
+ONTO MY PORCH AREA AND GRILLING UP A THICK SLAB OF SOMETHING’S FLESH AND THEN POPPING IN A HIGHLIGHT REAL FROM THE WNBA. 
+The size of the last multiLine is 120
+120
+multi Line has lines : 2
+END OF WHILE LOOP
+Beginning of while loop, size of last multi line: 120
+Beginning of while loop, sizeOfLast 120
+start of for loop 31
+before if statement  
+first is sized 31
+ONTO MY PORCH AREA AND GRILLING 
+second is sized 88
+UP A THICK SLAB OF SOMETHING’S FLESH AND THEN POPPING IN A HIGHLIGHT REAL FROM THE WNBA. 
+AN IDEAL NIGHT OUT, TO ME, IS STEPPING 
+ONTO MY PORCH AREA AND GRILLING 
+UP A THICK SLAB OF SOMETHING’S FLESH AND THEN POPPING IN A HIGHLIGHT REAL FROM THE WNBA. 
+The size of the last multiLine is 88
+88
+multi Line has lines : 3
+END OF WHILE LOOP
+Beginning of while loop, size of last multi line: 88
+Beginning of while loop, sizeOfLast 88
+start of for loop 31
+before if statement F
+start of for loop 32
+before if statement L
+start of for loop 33
+before if statement E
+start of for loop 34
+before if statement S
+start of for loop 35
+before if statement H
+start of for loop 36
+before if statement  
+first is sized 36
+UP A THICK SLAB OF SOMETHING’S FLESH 
+second is sized 51
+AND THEN POPPING IN A HIGHLIGHT REAL FROM THE WNBA. 
+AN IDEAL NIGHT OUT, TO ME, IS STEPPING 
+ONTO MY PORCH AREA AND GRILLING 
+UP A THICK SLAB OF SOMETHING’S FLESH 
+AND THEN POPPING IN A HIGHLIGHT REAL FROM THE WNBA. 
+The size of the last multiLine is 51
+51
+multi Line has lines : 4
+END OF WHILE LOOP
+Beginning of while loop, size of last multi line: 51
+Beginning of while loop, sizeOfLast 51
+start of for loop 31
+before if statement  
+first is sized 31
+AND THEN POPPING IN A HIGHLIGHT 
+second is sized 19
+REAL FROM THE WNBA. 
+AN IDEAL NIGHT OUT, TO ME, IS STEPPING 
+ONTO MY PORCH AREA AND GRILLING 
+UP A THICK SLAB OF SOMETHING’S FLESH 
+AND THEN POPPING IN A HIGHLIGHT 
+REAL FROM THE WNBA. 
+The size of the last multiLine is 19
+19
+multi Line has lines : 5
+END OF WHILE LOOP
+Result:retraee !Wag 
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
