@@ -86,6 +86,8 @@ public class PhraseController {
         modelMap.put("invalidDisplay", validInput);
         //modelMap.put("characterBank", phraseRepository.getCharacterBank());
         modelMap.put("characterBankLines", phraseRepository.getCharacterBankLines());
+        modelMap.put("hintOrg", phraseRepository.getHint()[0]);
+        modelMap.put("hintScrambled", phraseRepository.getHint()[1]);
 
         //characterBankLines and HTML
 

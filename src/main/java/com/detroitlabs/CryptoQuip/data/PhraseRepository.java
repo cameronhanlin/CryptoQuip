@@ -16,6 +16,15 @@ public class PhraseRepository {
     String scrambled;
     String thePhrase;
     String thePhraseScrambled;
+    private String[] hint = new String[2];
+    Random rand = new Random();
+
+    public String[] getHint() {
+        return hint;
+    }
+
+
+
 
 
     public PhraseRepository(){
@@ -41,6 +50,14 @@ public class PhraseRepository {
 
         alphabet = alphabet.toUpperCase();
         thePhrase = thePhrase.toUpperCase();
+        int index;
+        do {
+            index = rand.nextInt(alphabet.length());
+
+        }while(!thePhrase.contains(alphabet.substring(index, index+1)));
+        hint[0] = alphabet.substring(index, index+1);
+        hint[1] = scrambled.substring(index, index+1);
+
 
 //        System.out.println(alphabet);
 //        System.out.println(scrambled);
